@@ -1,0 +1,412 @@
+<!-- 一比一复刻 bszip.me — 悲伤分享页 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悲伤分享页</title>
+    <!-- 引入 Tailwind 和 Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --primary: #165DFF;
+            --bg-card: #FFFFFF;
+            --border: #E5E6EB;
+            --text-main: #1D2129;
+            --text-sub: #4E5969;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #F5F7FA;
+            font-family: -apple-system, 'Microsoft YaHei', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+        .navbar {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: sticky; top: 0; z-index: 100;
+            transition: all 0.3s ease;
+        }
+        .navbar.scroll {
+            height: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            height: 56px;
+            transition: height 0.3s ease;
+        }
+        .navbar.scroll .nav-container {
+            height: 50px;
+        }
+        .nav-logo a {
+            font-weight: 700; font-size: 18px; color: var(--primary);
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        .nav-logo a:hover {
+            transform: scale(1.05);
+        }
+        .nav-menu {
+            display: flex; list-style: none; gap: 12px;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 1px solid var(--border) !important;
+            background: transparent !important;
+        }
+        .nav-menu a.active, .nav-menu a:hover {
+            background: linear-gradient(135deg, var(--primary), #4080FF) !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(22,93,255,0.3) !important;
+            transform: translateY(-2px) !important;
+            border: none !important;
+        }
+        .menu-toggle {
+            display: none;
+            background: transparent !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 6px !important;
+            font-size: 24px;
+            color: var(--text-main);
+            cursor: pointer;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px !important;
+            transition: all 0.2s;
+        }
+        .menu-toggle span { font-size: 14px; font-weight: 500; }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 56px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: white;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                padding: 12px 25px;
+                gap: 10px;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu a {
+                width: 100%;
+                display: block;
+                text-align: center;
+                padding: 10px 0;
+                border: 1px solid var(--border) !important;
+            }
+            .nav-menu a.active, .nav-menu a:hover {
+                border: none !important;
+                transform: none !important;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="https://bszip.me/">悲伤的分享页</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa fa-bars"></i> <span>更多玩机资源</span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="https://bszip.me/" class="active">首页</a></li>
+                <li><a href="https://bszip.me/jc/">玩机教程</a></li>
+                <li><a href="https://bszip.me/9008/">Rom刷机包</a></li>
+                <li><a href="https://bszip.me/root/">一键Root工具</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主体内容 -->
+    <main class="container" style="max-width:720px;margin:20px auto;padding:0 12px;">
+
+        <!-- 英雄区 -->
+        <header class="hero" style="background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:16px;padding:12px 16px;border:1px solid #E5E6EB;margin-top:20px;margin-bottom:24px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,0.05);">
+            <div class="hero-logo" style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px;">
+                <img src="images/bszip.png" alt="Logo" style="width:48px;height:48px;border-radius:50%;border:2px solid #165DFF;padding:2px;">
+                <span style="font-size:24px;font-weight:800;color:#0E42D2;">网址:bszip.me</span>
+            </div>
+            <div class="platform-row" style="display:flex;justify-content:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+                <img src="images/root/alpha.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+                <img src="images/root/sukisu.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+                <img src="images/root/apatch.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+                <img src="images/root/kernelsu.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+                <img src="images/root/skroot.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+                <img src="images/root/ksunext.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+                <img src="images/root/fp.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+                <img src="images/root/狐狸面具.png" style="width:28px;height:28px;border-radius:6px;background:#F9FBFF;padding:3px;border:1px solid #E5E6EB;">
+            </div>
+            <p style="font-size:16px;color:#4E5969;margin-bottom:14px;">让隐藏环境变得简单 拒绝繁琐步骤</p>
+            <div class="btn-group" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
+                <a href="javascript:void(0);" onclick="openPopup()" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;background:linear-gradient(135deg,#165DFF,#4080FF);color:white;text-decoration:none;font-weight:600;">远程服务点我</a>
+                <a href="https://h5.lot-ml.com/ProductEn/Shop/75ebdc74829d5b59" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;background:linear-gradient(135deg,#FF7D00,#FF9E3D);color:white;text-decoration:none;font-weight:600;">大流量手机卡</a>
+            </div>
+        </header>
+
+        <!-- 环境隐藏工具 -->
+        <section style="margin-bottom:32px;">
+            <h2 style="font-size:17px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #E5E6EB;display:flex;align-items:center;gap:8px;color:#0E42D2;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:20px;color:#4080FF;"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                环境隐藏工具v.0702版本
+            </h2>
+
+            <!-- 卡片 1 -->
+            <div class="accordion is-open" style="background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border:1px solid #E5E6EB;border-radius:12px;margin-bottom:10px;overflow:hidden;">
+                <button class="acc-trigger" onclick="toggleAccordion(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:transparent;border:none;color:#1D2129;cursor:pointer;">
+                    <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;">
+                        <img src="images/bszip.png" style="width:28px;border-radius:6px;">
+                        Alpha/KSU/APatch 隐藏环境
+                    </div>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="acc-content" style="max-height:500px;overflow:hidden;transition:max-height 0.4s;background:#F9FBFF;">
+                    <div style="padding:18px;border-top:1px solid #E5E6EB;">
+                        <div style="display:flex;align-items:flex-start;gap:6px;color:#4E5969;font-size:13px;margin-bottom:6px;"><span style="color:#00B42A;font-weight:bold;">&#10003;</span> 支持 Magisk、KernelSU、APatch 及分支</div>
+                        <div style="display:flex;align-items:flex-start;gap:6px;color:#4E5969;font-size:13px;margin-bottom:6px;"><span style="color:#00B42A;font-weight:bold;">&#10003;</span> 完全免费, 附带教程，小白也可以轻松上手</div>
+                        <div style="display:flex;align-items:flex-start;gap:6px;color:#4E5969;font-size:13px;margin-bottom:6px;"><span style="color:#00B42A;font-weight:bold;">&#10003;</span> 自动更新Ts包名（可开关），云端更新密钥</div>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+                            <a href="https://pan.xunlei.com/s/VOwXsecZjLJmD_QqmoU1snytA1?pwd=znia#" target="_blank" style="padding:6px 14px;border-radius:8px;background:linear-gradient(135deg,#165DFF,#4080FF);color:white;text-decoration:none;font-size:13px;">下载文件</a>
+                            <a href="https://www.bilibili.com/video/BV1gw9ZB1E57/" target="_blank" style="padding:6px 14px;border-radius:8px;background:#00B42A;color:white;text-decoration:none;font-size:13px;">视频教程</a>
+                            <a href="https://www.coolapk.com/feed/71270068" target="_blank" style="padding:6px 14px;border-radius:8px;background:#F9FBFF;color:#165DFF;border:1px solid #E5E6EB;text-decoration:none;font-size:13px;">图文</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 2 -->
+            <div class="accordion" style="background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border:1px solid #E5E6EB;border-radius:12px;margin-bottom:10px;overflow:hidden;">
+                <button class="acc-trigger" onclick="toggleAccordion(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:transparent;border:none;color:#1D2129;cursor:pointer;">
+                    <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;">
+                        <img src="images/root/skroot.png" style="width:28px;border-radius:6px;">
+                        SKRoot/Pro 隐藏环境
+                    </div>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="acc-content" style="max-height:0;overflow:hidden;transition:max-height 0.4s;background:#F9FBFF;">
+                    <div style="padding:18px;border-top:1px solid #E5E6EB;">
+                        <div style="display:flex;align-items:flex-start;gap:6px;color:#4E5969;font-size:13px;margin-bottom:6px;"><span style="color:#00B42A;font-weight:bold;">&#10003;</span> 适配最新版SKRoot</div>
+                        <div style="display:flex;align-items:flex-start;gap:6px;color:#4E5969;font-size:13px;margin-bottom:6px;"><span style="color:#00B42A;font-weight:bold;">&#10003;</span> sh脚本和模块两种版本</div>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+                            <a href="https://pan.xunlei.com/s/VOr2tXEVVu8E5DA08zOAVceXA1?pwd=yqtj" target="_blank" style="padding:6px 14px;border-radius:8px;background:linear-gradient(135deg,#165DFF,#4080FF);color:white;text-decoration:none;font-size:13px;">下载文件</a>
+                            <a href="#" target="_blank" style="padding:6px 14px;border-radius:8px;background:#00B42A;color:white;text-decoration:none;font-size:13px;">视频教程（待发布）</a>
+                            <a href="https://www.coolapk.com/feed/71807864" target="_blank" style="padding:6px 14px;border-radius:8px;background:#F9FBFF;color:#165DFF;border:1px solid #E5E6EB;text-decoration:none;font-size:13px;">图文</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 3 -->
+            <div class="accordion" style="background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border:1px solid #E5E6EB;border-radius:12px;margin-bottom:10px;overflow:hidden;">
+                <button class="acc-trigger" onclick="toggleAccordion(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:transparent;border:none;color:#1D2129;cursor:pointer;">
+                    <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;">
+                        <img src="images/root/狐狸面具.png" style="width:28px;border-radius:6px;">
+                        Kitsune Mask 环境隐藏
+                    </div>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="acc-content" style="max-height:0;overflow:hidden;transition:max-height 0.4s;background:#F9FBFF;">
+                    <div style="padding:18px;border-top:1px solid #E5E6EB;">
+                        <div style="display:flex;align-items:flex-start;gap:6px;color:#4E5969;font-size:13px;margin-bottom:6px;"><span style="color:#00B42A;font-weight:bold;">&#10003;</span> 支持新版、旧版 Kitsune Mask</div>
+                        <div style="display:flex;align-items:flex-start;gap:6px;color:#4E5969;font-size:13px;margin-bottom:6px;"><span style="color:#00B42A;font-weight:bold;">&#10003;</span> 稳定的隐藏机制，适合老机型</div>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+                            <a href="https://pan.xunlei.com/s/VOwXsecZjLJmD_QqmoU1snytA1?pwd=znia#" target="_blank" style="padding:6px 14px;border-radius:8px;background:linear-gradient(135deg,#165DFF,#4080FF);color:white;text-decoration:none;font-size:13px;">下载文件</a>
+                            <a href="https://www.bilibili.com/video/BV1gw9ZB1E57/" target="_blank" style="padding:6px 14px;border-radius:8px;background:#00B42A;color:white;text-decoration:none;font-size:13px;">视频教程</a>
+                            <a href="#" style="padding:6px 14px;border-radius:8px;background:#F9FBFF;color:#165DFF;border:1px solid #E5E6EB;text-decoration:none;font-size:13px;">图文教程（待发布）</a>
+                            <a href="#" style="padding:6px 14px;border-radius:8px;background:#00B42A;color:white;text-decoration:none;font-size:13px;">视频【旧版】（待发布）</a>
+                            <a href="#" style="padding:6px 14px;border-radius:8px;background:#F9FBFF;color:#165DFF;border:1px solid #E5E6EB;text-decoration:none;font-size:13px;">图文【旧版】（待发布）</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常用快捷资源 -->
+        <h2 style="font-size:17px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #E5E6EB;display:flex;align-items:center;gap:8px;color:#0E42D2;">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:20px;"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            常用快捷资源
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:32px;">
+            <a href="https://bszip.me/jc/" target="_blank" style="padding:18px;height:70px;border-radius:12px;text-decoration:none;color:white;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;background:linear-gradient(135deg,rgba(22,93,255,0.9),rgba(64,128,255,0.9));">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                视频教程资源
+            </a>
+            <a href="#" target="_blank" style="padding:18px;height:70px;border-radius:12px;text-decoration:none;color:white;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;background:linear-gradient(135deg,rgba(0,180,42,0.9),rgba(51,209,81,0.9));">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                LSP模块仓库（待发布）
+            </a>
+            <a href="#" target="_blank" style="padding:18px;height:70px;border-radius:12px;text-decoration:none;color:white;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;background:linear-gradient(135deg,rgba(245,63,63,0.9),rgba(250,100,100,0.9));">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                boot镜像仓库（待发布）
+            </a>
+        </div>
+
+        <!-- 更多玩机资源 -->
+        <div class="accordion is-open" style="background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border:1px solid #E5E6EB;border-radius:12px;margin-bottom:32px;overflow:hidden;">
+            <button class="acc-trigger" onclick="toggleAccordion(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:transparent;border:none;color:#1D2129;cursor:pointer;">
+                <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;">
+                    <div style="width:28px;height:28px;background:#F9FBFF;border:1px solid #E5E6EB;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#165DFF;">More</div>
+                    更多玩机资源收录
+                </div>
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="acc-content" style="max-height:500px;overflow:hidden;transition:max-height 0.4s;background:#F9FBFF;">
+                <div style="padding:18px;border-top:1px solid #E5E6EB;">
+                    <div style="display:grid;grid-template-columns:1fr;gap:10px;">
+                        <a href="https://pan.xunlei.com/s/VOs1ceKy26kWQd-DLint5DQlA1?pwd=qmfx#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:5px;padding:10px 18px;border-radius:8px;background:linear-gradient(135deg,#165DFF,#4080FF);color:white;text-decoration:none;font-weight:600;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            改机模块
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 关注社交媒体 -->
+        <section style="background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:16px;padding:24px;border:1px solid #E5E6EB;text-align:center;margin-bottom:32px;box-shadow:0 8px 24px rgba(0,0,0,0.05);">
+            <h2 style="font-size:20px;font-weight:700;margin-bottom:5px;color:#0E42D2;">关注我的社交媒体</h2>
+            <p style="color:#86909C;font-size:13px;margin-bottom:20px;">实时更新教程，感谢您的关注与支持</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;">
+                <a href="https://www.coolapk.com/u/4106305" target="_blank" style="background:#11A45C;display:flex;align-items:center;justify-content:center;gap:5px;padding:10px 18px;border-radius:8px;color:white;text-decoration:none;font-weight:600;">
+                    <img src="images/软件图标/kuan.png" alt="酷安" style="width:18px;height:18px;filter:invert(1);">
+                    酷安
+                </a>
+                <a href="https://v.douyin.com/PxgFKoGyh4E/" target="_blank" style="background:#333333;display:flex;align-items:center;justify-content:center;gap:5px;padding:10px 18px;border-radius:8px;color:white;text-decoration:none;font-weight:600;">
+                    <img src="images/软件图标/dy.png" alt="抖音" style="width:18px;height:18px;filter:invert(1);">
+                    抖音
+                </a>
+                <a href="https://space.bilibili.com/你的B站ID" target="_blank" style="background:#F16C8D;display:flex;align-items:center;justify-content:center;gap:5px;padding:10px 18px;border-radius:8px;color:white;text-decoration:none;font-weight:600;">
+                    <img src="images/软件图标/bilibili.png" alt="哔哩哔哩" style="width:18px;height:18px;filter:invert(1);">
+                    哔哩哔哩
+                </a>
+                <a href="https://qm.qq.com/q/3ftSrTV0Ry" target="_blank" style="background:#4CAFE9;display:flex;align-items:center;justify-content:center;gap:5px;padding:10px 18px;border-radius:8px;color:white;text-decoration:none;font-weight:600;">
+                    <img src="images/软件图标/QQ.jpg" alt="QQ" style="width:18px;height:18px;filter:invert(1);">
+                    QQ交流群
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 远程服务弹窗 -->
+    <div id="popupMask" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.1);z-index:999;display:none;backdrop-filter:blur(2px);"></div>
+    <div id="popupContainer" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.95);background:white;border:1px solid #E5E6EB;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.1);z-index:1000;display:none;width:90%;max-width:280px;opacity:0;transition:opacity 0.3s,transform 0.3s;">
+        <button onclick="closePopup()" style="position:absolute;top:8px;right:8px;background:#F9FBFF;border:1px solid #E5E6EB;width:28px;height:28px;border-radius:50%;font-size:16px;cursor:pointer;color:#666;">&times;</button>
+        <div style="padding:16px 16px 0;">
+            <img src="images/远程服务二维码.png" alt="远程服务二维码" style="width:100%;border-radius:10px;border:1px solid #E5E6EB;">
+        </div>
+        <div style="display:flex;padding:14px;gap:8px;">
+            <button onclick="copyQQ()" style="flex:1;padding:10px;border:none;border-radius:10px;background:linear-gradient(135deg,#165DFF,#4080FF);color:white;font-weight:600;cursor:pointer;">复制 QQ 号</button>
+            <button onclick="saveImage()" style="flex:1;padding:10px;border:none;border-radius:10px;background:linear-gradient(135deg,#00B42A,#33D151);color:white;font-weight:600;cursor:pointer;">保存图片</button>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer style="text-align:center;padding:30px 20px;color:#86909C;font-size:13px;border-top:1px solid #E5E6EB;margin-top:40px;background:white;">
+        <p>&copy;2025 悲伤压缩包个人分享页</p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank" style="color:inherit;">豫ICP备2025158785号</a></p>
+    </footer>
+
+    <script>
+        // 菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const icon = menuToggle.querySelector('i');
+        const text = menuToggle.querySelector('span');
+
+        menuToggle.addEventListener('click', function(){
+            navMenu.classList.toggle('active');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+            text.textContent = navMenu.classList.contains('active') ? '关闭' : '菜单';
+        });
+
+        document.addEventListener('click', function(e){
+            if(!menuToggle.contains(e.target) && !navMenu.contains(e.target)){
+                navMenu.classList.remove('active');
+                icon.className = 'fa fa-bars';
+                text.textContent = '菜单';
+            }
+        });
+
+        window.addEventListener('scroll', function(){
+            document.querySelector('.navbar').classList.toggle('scroll', window.scrollY > 20);
+        });
+
+        // 折叠面板
+        function toggleAccordion(btn) {
+            const accordion = btn.parentElement;
+            const content = btn.nextElementSibling;
+            const isOpen = accordion.classList.contains('is-open');
+            document.querySelectorAll('.accordion').forEach(acc => {
+                acc.classList.remove('is-open');
+                acc.querySelector('.acc-content').style.maxHeight = '0';
+            });
+            if (!isOpen) {
+                accordion.classList.add('is-open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.accordion.is-open .acc-content').forEach(content => {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            });
+        });
+
+        // 弹窗
+        const popupMask = document.getElementById('popupMask');
+        const popupContainer = document.getElementById('popupContainer');
+        window.openPopup = function() {
+            popupMask.style.display = 'block';
+            popupContainer.style.display = 'block';
+            setTimeout(() => {
+                popupContainer.style.opacity = '1';
+                popupContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 10);
+        }
+        window.closePopup = function() {
+            popupContainer.style.opacity = '0';
+            popupContainer.style.transform = 'translate(-50%, -50%) scale(0.95)';
+            setTimeout(() => {
+                popupMask.style.display = 'none';
+                popupContainer.style.display = 'none';
+            }, 300);
+        }
+        popupMask.addEventListener('click', closePopup);
+        window.copyQQ = function() {
+            navigator.clipboard.writeText('318141285').then(() => alert('QQ号 318141285 已复制'));
+        }
+        window.saveImage = function() {
+            const img = document.querySelector('#popupContainer img');
+            const link = document.createElement('a');
+            link.href = img.src;
+            link.download = '远程服务二维码.png';
+            link.click();
+            alert('图片正在下载中...');
+        }
+    </script>
+
+</body>
+</html>
